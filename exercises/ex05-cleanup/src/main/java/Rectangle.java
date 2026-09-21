@@ -1,29 +1,47 @@
+/**
+ * A Rectangle.
+ */
 public class Rectangle {
-    private double width;
-    private double height;
+  private double width;
+  private double height;
 
-    public Rectangle(double w,double h){
-        this.width=w;
-        this.height=h;
-    }
+  /**
+   * Creates a rectangle with the given dimensions.
+   *
+   * @param width the initial width
+   * @param height the initial height
+   */
+  public Rectangle(double width, double height) {
+    this.width = width;
+    this.height = height;
+  }
 
-    public double area(){
-        return width*height;
-    }
+  /**
+   * Returns the area of this rectangle.
+   *
+   * @return the product of the width and height
+   */
+  public double area() {
+    return width * height;
+  }
 
-    /**
-     * scales the rectangle
-     * @param factor
-     */
-    public void scale(double factor) {
-      width = width * factor;
-      height = height * factor;
-    }
+  /**
+   * Multiplies both dimensions of this rectangle by the given factor.
+   *
+   * @param factor the multiplier applied to the width and height
+   */
+  public void scale(double factor) {
+    width = width * factor;
+    height = height * factor;
+  }
 
-    public boolean isLargerThan(Rectangle other){
-        if(area() > other.area())
-            return true;
-        else
-            return false;
-    }
+  /**
+   * Returns whether this rectangle has a greater area than the other rectangle.
+   *
+   * @param other the rectangle to compare with
+   * @return true if this rectangle's area is strictly greater
+   */
+  public boolean isLargerThan(Rectangle other) {
+    return area() > other.area();
+  }
 }
