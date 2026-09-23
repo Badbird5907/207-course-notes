@@ -1,4 +1,5 @@
-import java.awt.FlowLayout;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,19 +27,30 @@ import javax.swing.SwingUtilities;
 public class RegistrationForm {
 
   /**
-   * Builds the form panel. Change the layout here — the components you need are
-   * all present, but they are arranged in a single row rather than stacked.
+   * Builds the form with two name fields and a row of buttons beneath them.
    *
    * @return the form's root panel
    */
   public static JPanel buildForm() {
-    JPanel panel = new JPanel(new FlowLayout());
-    panel.add(new JLabel("First name:"));
-    panel.add(new JTextField(12));
-    panel.add(new JLabel("Last name:"));
-    panel.add(new JTextField(12));
-    panel.add(new JButton("Submit"));
-    panel.add(new JButton("Cancel"));
+    JPanel panel = new JPanel();
+    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+    panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+    JPanel firstNamePanel = new JPanel();
+    firstNamePanel.add(new JLabel("First name:"));
+    firstNamePanel.add(new JTextField(12));
+
+    JPanel lastNamePanel = new JPanel();
+    lastNamePanel.add(new JLabel("Last name:"));
+    lastNamePanel.add(new JTextField(12));
+
+    JPanel buttonPanel = new JPanel();
+    buttonPanel.add(new JButton("Submit"));
+    buttonPanel.add(new JButton("Cancel"));
+
+    panel.add(firstNamePanel);
+    panel.add(lastNamePanel);
+    panel.add(buttonPanel);
     return panel;
   }
 
